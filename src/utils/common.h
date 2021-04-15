@@ -6,6 +6,7 @@
 #define LEETCODE_CPP_COMMON_H
 
 #include <iostream>
+#include <fstream>
 #include <sstream>
 #include <vector>
 #include <deque>
