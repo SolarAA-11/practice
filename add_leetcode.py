@@ -15,6 +15,11 @@ def main():
 
     if not os.path.exists(file_path):
         fp = open(file_path, "w")
+        fp.write(
+"""
+#include "common.h"
+"""
+        );
         fp.close()
     else:
         print("文件已存在, 路径: " + os.path.abspath(file_path))

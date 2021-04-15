@@ -5,7 +5,23 @@
 #ifndef LEETCODE_CPP_COMMON_H
 #define LEETCODE_CPP_COMMON_H
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <sstream>
+#include <vector>
+#include <deque>
+#include <string>
+#include <list>
+#include <forward_list>
+#include <map>
+#include <unordered_map>
+#include <set>
+#include <unordered_set>
+#include <stack>
+#include <queue>
+#include <algorithm>
+#include <numeric>
+#include <iterator>
+#include <regex>
 using namespace std;
 using ll = long long;
 
