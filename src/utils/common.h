@@ -21,6 +21,7 @@
 #include <algorithm>
 #include <numeric>
 #include <iterator>
+#include <functional>
 #include <regex>
 using namespace std;
 using ll = long long;
