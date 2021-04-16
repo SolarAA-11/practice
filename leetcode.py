@@ -18,6 +18,12 @@ def main():
         fp.write(
 """
 #include "common.h"
+
+
+
+int main() {
+    Solution s;
+}
 """
         );
         fp.close()

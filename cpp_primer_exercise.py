@@ -30,8 +30,13 @@ def main():
     if not os.path.exists(file_path):
         with open(file_path, "w") as f:
             f.write(
-                """
+"""
 #include "common.h"
+
+
+int main() {
+
+}
 """
             )
     else:
