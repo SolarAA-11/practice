@@ -24,6 +24,8 @@
 #include <iterator>
 #include <functional>
 #include <regex>
+#include <cmath>
+#include <bitset>
 using namespace std;
 using ll = long long;
 
