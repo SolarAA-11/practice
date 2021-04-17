@@ -26,6 +26,7 @@
 #include <regex>
 #include <cmath>
 #include <bitset>
+#include <memory>
 using namespace std;
 using ll = long long;
 

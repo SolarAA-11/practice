@@ -6,7 +6,7 @@ def main():
     chapter = int(sys.argv[1])
     exercise_count = int(sys.argv[2])
 
-    folder_path = "./src/cpp-primer/Chapter-%03d" % chapter
+    folder_path = "./src/cpp-primer/chapter-%03d" % chapter
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
 
