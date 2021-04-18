@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD 17)
 include_directories("src/utils")
 
 # Leetcode
-file (GLOB files src/leetcode/leetcode-*/*.cpp src/cpp-primer/*/*.cpp)
+file (GLOB files src/leetcode/leetcode-*/*.cpp src/cpp-primer/*/*.cpp src/leetcode-weekly-contest/*/*.cpp)
 
 foreach (file ${files})
     string(REGEX REPLACE ".+/(.+)\\..*" "\\1" exe ${file})
