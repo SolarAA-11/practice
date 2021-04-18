@@ -59,19 +59,6 @@ unique_ptr<string> return_unique() {
 
 
 int main() {
-    constexpr long long LEN = 1e8;
-    try {
-        int *parray = nullptr;
-        long long total_len = 0;
-        while(true) {
-            parray = new (nothrow) int[LEN];
-            if (parray != nullptr) {
-                total_len += LEN;
-                cout << "Succeed " << total_len << endl;
-            }
-            else cout << "I can't afford anymore than " << total_len << endl;
-        }
-    } catch (bad_alloc &e) {
-        cout << "Oh you bad guy" << endl;
-    }
+    int *pa = new int[100];
+    auto it = begin(pa);
 }

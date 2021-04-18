@@ -5,7 +5,9 @@
 #include "common.h"
 
 int main() {
-    vector<int> vec{1,2,3,4,5,6,7};
-    auto r_it = vec.rbegin() + 1;
-    cout << *r_it << " " << *(r_it.base()) << endl;
+    vector<int> v = {
+            1,2,3,4,5,6,7,8,9
+    };
+    ostream_iterator<int> out_iter(cout, " ");
+    copy(v.begin(), v.end(), out_iter);
 }
