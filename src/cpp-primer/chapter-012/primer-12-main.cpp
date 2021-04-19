@@ -51,14 +51,26 @@ void StrBlob::check(StrBlob::size_type i, const string &msg) const {
         throw out_of_range(msg);
 }
 
-unique_ptr<string> return_unique() {
-    unique_ptr<string> p_str(new string("Hello"));
-    unique_ptr<string> p_str_2 = p_str;
 
+
+class my_class {
+public:
+    int x;
+    ~my_class() {
+        cout << "Destructed: " << x << endl;
+    }
+};
+
+void func() {
+    auto pa = new my_class[10];
+    for (int i = 0; i < 10; ++i) {
+        pa[i].x = i;
+    }
+    delete []pa;
 }
 
-
 int main() {
-    int *pa = new int[100];
-    auto it = begin(pa);
+    allocator<string> alloc;
+    auto const p = alloc.allocate(10);
+    auto q = p;
 }
