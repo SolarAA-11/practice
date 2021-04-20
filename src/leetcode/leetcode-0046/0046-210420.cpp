@@ -3,7 +3,6 @@
 
 class Solution {
 private:
-
     vector<bool> used;
     vector<vector<int>> result;
     vector<int> bucket;
