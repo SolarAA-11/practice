@@ -22,7 +22,7 @@ int main() {
 
 
 def create_readme(fold_file: str):
-    readme_path = "%s/readme.md" % fold_file
+    readme_path = "%s/README.md" % fold_file
     if not os.path.exists(readme_path):
         with open(readme_path, "w") as f:
             pass
