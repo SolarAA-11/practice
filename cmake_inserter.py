@@ -1,5 +1,6 @@
 import re
 
+
 class CMakeInserter:
     def __init__(self, block_start_tag: str, block_end_tag: str):
         with open("./CMakeLists.txt", "r") as fp:
@@ -15,5 +16,3 @@ class CMakeInserter:
 
             if within_block:
                 pass
-
-
