@@ -16,3 +16,9 @@ class CMakeInserter:
 
             if within_block:
                 pass
+
+
+
+class LeetCodeFileParser:
+    def __init__(self, folder_path: str):
+        pass
