@@ -6,7 +6,7 @@ private:
     using iter = map<int, int>::iterator;
     map<int,int> m, m2;
     vector<vector<int>> ans;
-    vector<int> bucket;
+    vector<int> board;
     void dfs(iter st, iter ed, int target) {
         if (target == 0) {
             ans.emplace_back();

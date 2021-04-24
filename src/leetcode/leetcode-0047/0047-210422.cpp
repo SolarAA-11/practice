@@ -5,13 +5,13 @@ class Solution {
 private:
     map<int,int> counter;
     vector<vector<int>> result;
-    vector<int> bucket;
+    vector<int> board;
     void f(int pos) {
-        if (pos == bucket.size()) result.emplace_back(bucket);
+        if (pos == board.size()) result.emplace_back(board);
         else {
             for (auto &item : counter) {
                 if (item.second != 0) {
-                    bucket[pos] = item.first;
+                    board[pos] = item.first;
                     item.second--;
                     f(pos + 1);
                     item.second++;
@@ -22,7 +22,7 @@ private:
 public:
     vector<vector<int>> permuteUnique(vector<int>& nums) {
         for (const auto &item : nums) counter[item]++;
-        bucket.assign(nums.size(),0);
+        board.assign(nums.size(), 0);
         f(0);
         return result;
     }

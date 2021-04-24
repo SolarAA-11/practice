@@ -4,17 +4,17 @@
 class Solution {
 private:
     vector<vector<int>> ans;
-    vector<int> bucket;
+    vector<int> board;
     void dfs(int pos, int target, vector<int>& nums) {
-        if (target == 0) ans.push_back(bucket);
+        if (target == 0) ans.push_back(board);
         else if (pos >= nums.size() || nums[pos] > target) return;
         else {
             int p1 = lower_bound(nums.begin(), nums.end(), nums[pos]) - nums.begin();
-            int c = count(bucket.begin(), bucket.end(), nums[pos]);
+            int c = count(board.begin(), board.end(), nums[pos]);
             if (pos - p1 == c) {
-                bucket.push_back(nums[pos]);
+                board.push_back(nums[pos]);
                 dfs(pos + 1, target - nums[pos], nums);
-                bucket.pop_back();
+                board.pop_back();
             }
             dfs(pos + 1, target, nums);
         }

@@ -3,17 +3,17 @@
 
 class Solution {
 private:
-    vector<int> nums, bucket;
+    vector<int> nums, board;
     vector<vector<int>> result;
     void f(int pos, int target) {
-        if (target == 0) result.emplace_back(bucket);
+        if (target == 0) result.emplace_back(board);
         else if (pos < nums.size() && nums[pos] <= target) {
             int i;
             for (i = 0; i * nums[pos] <= target; ++i) {
                 f(pos + 1, target - nums[pos] * i);
-                bucket.push_back(nums[pos]);
+                board.push_back(nums[pos]);
             }
-            bucket.erase(bucket.end() - i, bucket.end());
+            board.erase(board.end() - i, board.end());
         }
     }
 public:

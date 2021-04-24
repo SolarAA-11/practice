@@ -28,8 +28,12 @@ class LeetcodeFileParser:
         cpp_files: List[str] = list()
         md_files: List[str] = list()
 
+        def __init__(self, cpps: List[str], mds: List[str]):
+            self.cpp_files = cpps
+            self.md_files = mds
+
     # 问题标号 到 ProblemFiles 对象
-    problems: Dict[int, ProblemFiles]
+    problems: Dict[int, ProblemFiles] = dict()
 
     def __init__(self, folder_path: str):
         if not os.path.exists(folder_path):
@@ -44,12 +48,45 @@ class LeetcodeFileParser:
     # 保存到 self.problems
     def _load_all_cpp_md_files(self):
         p = re.compile("leetcode-(\d+)", re.I)
+        print(os.path.abspath(self.folder_path))
         for folder in os.listdir(self.folder_path):
-            if not os.path.isdir(folder):
+            if not os.path.isdir("%s/%s" % (self.folder_path, folder)):
+                continue
+            m = p.match(folder)
+            if m.lastindex < 1:
+                continue
+            problem_index = int(m.group(1))
+            problem_folder_path = "%s/%s" % (self.folder_path, folder)
+            cpp_files, md_files, = self._fetch_cpp_md_files(problem_folder_path)
+            self.problems[problem_index] = self.ProblemFiles(cpp_files, md_files)
+
+    def _fetch_cpp_md_files(self, problem_folder_path: str) -> Tuple[List[str], List[str]]:
+        """
+        获取文件夹下的 cpp 文件路径列表 和 md 文件路径列表 ,绝对路径保存
+        :param problem_folder_path: Leetcode 问题文件夹
+        :return: 0. cpps, 1. mds
+        """
+        if not os.path.exists(problem_folder_path):
+            return [], []
+        elif not os.path.isdir(problem_folder_path):
+            return [], []
+
+        cpp_file_list = []
+        md_file_list = []
+
+        for file_name in os.listdir(problem_folder_path):
+            file_path = "%s/%s" % (problem_folder_path, file_name)
+            if os.path.isdir(file_path):
                 continue
 
-            m = p.match(folder)
-            problem_index = int(m.group(1))
+            if file_path.endswith(".cpp"):
+                cpp_file_list.append(file_path)
+            elif file_path.endswith(".md"):
+                md_file_list.append(file_path)
+
+        return cpp_file_list, md_file_list
 
 
 
+if __name__ == '__main__':
+    p = LeetcodeFileParser("./src/leetcode")
